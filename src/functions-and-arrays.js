@@ -19,7 +19,7 @@ function findLongestWord(words) {
     longestWord = words[i]
   } 
  }
- return longestWord
+ return longestWord || null
 }
 
 console.log(findLongestWord(words))
@@ -132,33 +132,30 @@ const wordsUnique = [
   'bring'
 ];
 
-// function uniquifyArray(wordsUnique) {
-//   for(let i = 0; i < wordsUnique.length; i++){
-//     if(wordsUnique.indexOf("poison",2)){
-//       wordsUnique.splice(, 1)
-//     }
-//   }
-//   return wordsUnique
-
-// }
-
-// console.log(uniquifyArray(wordsUnique))
-
+function uniquifyArray(wordsUnique) {
+  let newArr = [];
+  if(wordsUnique.length === 0){
+    return null
+  }
+  for(let i = 0; i < wordsUnique.length; i++){
+    if(newArr.indexOf(wordsUnique[i]) === -1){
+      newArr.push(wordsUnique[i])
+    }
+  }
+  return newArr
+  }
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-// function doesWordExist(array) {
-//   let word = ""
-//   for (let i = 0; i < array; i++){
-//     if(array[i].includes(word)){
-//       return true
-//     } else{
-//       return false
-//     }
-//   }
-// }
+function doesWordExist(wordsFind, word) {
+  
+    if(wordsFind.includes(word)){
+      return true
+    } else{
+      return false
+    }
+}
 
 
 
@@ -177,7 +174,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, searchWord) {
+  let count = 0
+  for(let i = 0; i < wordsCount.length; i++){
+    if(wordsCount[i] === searchWord){
+      count++
+    }
+  }
+  return count
+}
 
 
 
@@ -221,7 +226,7 @@ if (typeof module !== 'undefined') {
     averageNumbers,
     averageWordLength,
     avg,
-    //uniquifyArray,
+    uniquifyArray,
     doesWordExist,
     howManyTimes,
     greatestProduct
